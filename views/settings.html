@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>settings</title>
+  <link rel="stylesheet" href="../static/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/settings.css">
+</head>
+
+<body>
+  <div id="App">
+    <div class="container wrapper">
+      <h2>配置</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>{{items.length}}#</th>
+            <th>目标链接</th>
+            <th>新链接</th>
+            <th style="width: 80px">启用</th>
+            <th style="width: 80px">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(index, item) in items">
+            <th scope="row">{{index + 1}}</th>
+            <td>
+              <input type="text" class="form-control" v-model="item.targetUrl">
+            </td>
+            <td>
+              <input type="text" class="form-control" v-model="item.replaceUrl">
+            </td>
+            <td>
+              <div class="switch">
+                <input type="checkbox" v-model="item.status" />
+              </div>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" data-event="remove" @click="remove(index)">删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="bottom-nav">
+        <button type="button" class="btn btn-info" @click="add">添加</button>
+      </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <div class="bottom-nav">
+          <span>修改配置后需要点此按钮才能生效&#12288;&#12288;</span>
+          <button type="button" class="btn btn-primary" @click="reload">保存并且重载应用</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <script src="../static/lib/vue-csp-1.0.28/vue.csp.min.js"></script>
+  <script src="../static/js/actions.js"></script>
+  <script src="../static/js/settings.js"></script>
+</body>
+
+</html>

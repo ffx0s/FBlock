@@ -1,0 +1,15 @@
+.wrapper {
+  margin: 20px auto;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  justify-content: center;
+}
+
+.bottom-nav {
+  text-align: right;
+  margin-top: 8px;
+}
